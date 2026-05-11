@@ -2,34 +2,45 @@
 
 个人维护的 Claude Code 技能和常用命令合集，方便快速翻阅。
 
-## 插件技能
+## 技能索引（按功能分类）
 
-### Superpowers（结构化开发工作流）
+### 开发工作流
 
-完整速查 → [skills/superpowers/README.md](skills/superpowers/README.md)
+| 技能 | 命令/触发 | 说明 | 速查 |
+|------|----------|------|------|
+| Superpowers | 多个子技能 | 结构化开发全流程（规划→编码→测试→审查→收尾） | [详情](skills/superpowers/README.md) |
+| code-review | `/code-review` | 多代理并行 PR 审查，带置信度评分过滤 | [详情](skills/code-review/SKILL.md) |
+| code-simplifier | `/simplify` | 自动简化最近修改的代码，不改变功能 | [详情](skills/code-simplifier/SKILL.md) |
 
-| 类别 | 技能 |
-|------|------|
-| 核心工作流 | `brainstorming` · `writing-plans` · `executing-plans` · `test-driven-development` |
-| 开发流程 | `using-git-worktrees` · `subagent-driven-development` · `dispatching-parallel-agents` |
-| 质量保证 | `systematic-debugging` · `verification-before-completion` · `requesting-code-review` · `receiving-code-review` |
-| 收尾 | `finishing-a-development-branch` · `writing-skills` |
+### 任务规划与管理
 
-### 独立技能
+| 技能 | 命令/触发 | 说明 | 速查 |
+|------|----------|------|------|
+| planning-with-files | `/planning-with-files-zh` | Manus 风格三文件系统（task_plan / findings / progress） | [详情](skills/planning-with-files/README.md) |
 
-| 技能 | 命令 | 说明 |
-|------|------|------|
-| [code-review](skills/code-review/SKILL.md) | `/code-review` | 多代理并行 PR 审查，带置信度评分过滤 |
-| [code-simplifier](skills/code-simplifier/SKILL.md) | `/simplify` | 自动简化和优化最近修改的代码，提升清晰度和可维护性，不改变功能 |
-| [planning-with-files](skills/planning-with-files/README.md) | `/plan` | Manus 风格的文件规划系统，用持久化 Markdown 文件替代易失的上下文记忆 |
+### 论文阅读与审稿
+
+| 技能 | 命令/触发 | 说明 | 速查 |
+|------|----------|------|------|
+| Paper Glance | 上传论文/提到"论文" | 全能处理（分析、思维导图、审稿、宣传、播客） | [详情](skills/paper-review/README.md) |
+| AI Review Skill | "审稿"/"review my paper" | 结构化审稿，SoT/Pure/Few-Shot/VLM 四种模式 | [详情](skills/paper-review/README.md) |
+| Get Paper | `/get-paper <关键词>` | Google Scholar 搜索 + BibTeX 获取 | [详情](skills/paper-review/README.md) |
+
+### 科研项目管理
+
+| 技能 | 精确触发词 | 说明 | 速查 |
+|------|-----------|------|------|
+| 进度追踪 | `科研启动` | 多 Agent 并行 + Git 管理 + PROGRESS.md | [详情](skills/research-management/README.md) |
+| 任务执行 | `科研启动-执行` | 最小完整方案 + 链路检查 | [详情](skills/research-management/README.md) |
+| 算法检查 | `科研启动-检查` | 5 Agent 分工审查 + ISSUES.md | [详情](skills/research-management/README.md) |
 
 ### 工具与插件
 
-| 项目 | 说明 |
-|------|------|
-| [claude-code-hub](skills/claude-code-hub/README.md) | 智能 AI API 代理中转服务平台，面向团队的多供应商统一接入、弹性调度与精细化运营中心 |
-| [claude-hud](skills/claude-hud/README.md) | Claude Code 插件，在输入框下方实时显示会话状态：上下文用量、工具活动、代理追踪、任务进度 |
-| [using-codex](skills/using-codex/README.md) | 在 Claude Code 中使用 OpenAI Codex CLI 作为辅助工具，获取第二意见或委托子任务 |
+| 项目 | 说明 | 速查 |
+|------|------|------|
+| claude-code-hub | AI API 代理中转平台，多供应商统一接入 | [详情](skills/claude-code-hub/README.md) |
+| claude-hud | 状态栏插件，实时显示上下文/工具/代理/任务 | [详情](skills/claude-hud/README.md) |
+| using-codex | 在 Claude Code 中使用 Codex CLI 获取第二意见 | [详情](skills/using-codex/README.md) |
 
 ## 常用命令
 
@@ -39,29 +50,21 @@
 
 ```text
 ├── skills/
-│   ├── superpowers/           # Superpowers 插件技能速查
-│   │   └── README.md
-│   ├── code-review/           # PR 审查技能
-│   │   ├── README.md
-│   │   └── SKILL.md
-│   ├── code-simplifier/       # 代码简化技能
-│   │   ├── README.md
-│   │   └── SKILL.md
-│   ├── planning-with-files/   # 文件规划系统技能
-│   │   └── README.md
-│   ├── claude-code-hub/       # AI API 代理中转平台
-│   │   └── README.md
-│   ├── claude-hud/            # 状态栏插件
-│   │   └── README.md
-│   └── using-codex/           # Codex CLI 辅助工具
-│       └── README.md
-├── commands/                  # 常用命令
-│   └── README.md
+│   ├── superpowers/           # 开发工作流 — Superpowers 插件
+│   ├── code-review/           # 开发工作流 — PR 审查
+│   ├── code-simplifier/       # 开发工作流 — 代码简化
+│   ├── planning-with-files/   # 任务规划 — 文件规划系统
+│   ├── paper-review/          # 论文 — 阅读与审稿工具
+│   ├── research-management/   # 科研 — 项目管理工具
+│   ├── claude-code-hub/       # 工具 — API 代理中转平台
+│   ├── claude-hud/            # 工具 — 状态栏插件
+│   └── using-codex/           # 工具 — Codex CLI 辅助
+├── commands/                  # 常用命令速查
 └── README.md                  # 本文件（总索引）
 ```
 
 ## 如何添加新内容
 
-- **新技能**：在 `skills/` 下建文件夹 → 创建 `SKILL.md`（含 YAML frontmatter）+ `README.md`（速查）→ 更新本索引
+- **新技能**：在 `skills/` 下建文件夹 → 创建 `SKILL.md` + `README.md` → 更新本索引
 - **新命令**：直接编辑 `commands/README.md`
-- **新插件**：在 `skills/` 下建插件同名文件夹 → 创建 `README.md` 速查 → 更新本索引
+- **新插件**：在 `skills/` 下建同名文件夹 → 创建 `README.md` → 更新本索引
